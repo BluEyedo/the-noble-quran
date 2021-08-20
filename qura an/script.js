@@ -9,10 +9,10 @@ function getSurahs()
     .then(data=>{
         let surahs = data.data.surahs.references;
         let numberOfSurahs = 114;
-        SurahasContainer.innerHTML = "";
+        SurahsContainer.innerHTML = "";
         for (let i = 0; i < numberOfSurahs; i++) {
             
-            SurahasContainer.innerHTML += 
+            SurahsContainer.innerHTML += 
             `
                 <div class="surah">
                 <p>${surahs[i].name}</p>
@@ -22,8 +22,8 @@ function getSurahs()
                 
         }
         let SurahsTitels = document.querySelectorAll('.surah');
-        let popup = document.querySelector('surah-popup'), 
-            AyatContainer = document.querySelector('ayt');
+        let popup = document.querySelector('.surah-popup'), 
+            AyatContainer = document.querySelector('.ayat');
             SurahsTitels.forEach((title,index)=>{
                 title.addEventListener('click',()=>{
                     fetch(`http://api.alquran.cloud/v1/surah/${index + 1}`)
@@ -33,9 +33,8 @@ function getSurahs()
                         let Ayat = data.data.ayahs;
                         Ayat.forEach(aya=>{
                             popup.classList.add('active');
-                            AyatContainer.innerHTML +=`
-                                <p>(${aya.numberInSurah}) - ${aya.text}</p>
-                            `
+                            AyatContainer.innerHTML +=
+                            `<p>(${aya.numberInSurah}) - ${aya.text}</p> `
                         })
                     })
                 })

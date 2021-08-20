@@ -43,10 +43,10 @@
 .surah-popup.active
 {
     transform: translateX(0);
-    transition: .7s all ease-in-out;
+    transition: .7s transform all ease-in-out;
 }
 .surah-popup::-webkit-scrollbar
-{
+{   
     width: 10px;
     background-color: #43a047;
 }
@@ -54,7 +54,7 @@
 {
     background-color: #fff;
 }
-.close-popup
+.surah-popup .close-popup
 {
     position: sticky;
     top: 5px;
@@ -78,10 +78,11 @@
     color: #121212;
     text-align: center;
 }
-.surah-popup .ayat
+.surah-popup .ayat p
 {
     line-height: 2;
     width: 100%;
-    border-bottom: 2px solid #43a047;
+    border-bottom: 2px solid #4c9be6;
+    border-radius: 10px;
     margin-bottom: 10px;
 }
